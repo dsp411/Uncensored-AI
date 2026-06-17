@@ -2,7 +2,7 @@
 
 > A fully air-gapped, zero-dependency, plug-and-play Local AI environment that runs entirely from a local hard drive, SSD, or USB device.
 
-Cosmos AI eliminates complicated installations and allows you to run powerful AI models directly on your own hardware without requiring an internet connection. The system is portable, cross-platform, and designed to work seamlessly across Windows, macOS, Linux, and Android.
+This AI eliminates complicated installations and allows you to run powerful AI models directly on your own hardware without requiring an internet connection. The system is portable, cross-platform, and designed to work seamlessly across Windows, macOS, Linux, and Android.
 
 ---
 
