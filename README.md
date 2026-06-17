@@ -1,121 +1,425 @@
-Uncensored AI
-This is a fully air-gapped, zero-dependency, plug-and-play Local AI environment designed to run seamlessly from your local hard drive or a portable USB/SSD. It bypasses complex installations natively executing large language models directly on your hardware with no internet required.
+# Uncensored AI Model
 
-With a unified architecture, you can initialize your AI models once and choose to keep them on your system or carry them with you across Windows, macOS, and Linux PCs.
+> A fully air-gapped, zero-dependency, plug-and-play Local AI environment that runs entirely from a local hard drive, SSD, or USB device.
 
-Core Features
-Zero Dependency Setup: Ships with portable Python and isolated engine binaries. No system permissions, registry edits, or package managers required.
-Cross-Platform Interoperability: Uses a intelligent Shared volume system — download your 5GB+ AI models once, and use them natively on Windows, macOS, and Linux without duplication.
-Censorship Free: Integrates cutting-edge ablative and heretic fine-tuned models for completely unfiltered interactions.
-Network Proxied UI: The custom Python HTTP server instantly serves a blazing-fast dark mode UI. You can access the AI from your phone or tablet on the same WiFi network without complex CORS configuration.
-Hardware Accelerated: Uses a custom-compiled Ollama engine under the hood, natively capitalizing on AVX CPU instructions, NVIDIA CUDA, or Apple Metal GPU accelerators dynamically when plugged into different host machines.
----
-
-System Requirements
-Before preparing your drive, ensure you have:
-
-Storage: A USB 3.0+ flash drive or SSD with an absolute minimum of 8 GB free space (16 GB is highly recommended).
-RAM: The host computer should have at least 8 GB of system memory to run the 2B/4B models, and 16 GB of memory to fluidly run the 9B/12B models.
----
-
-Folder Architecture
-The project is structured to strictly isolate operating system executables while securely unifying heavy model weights to save precious portable storage capacity.
-
-\\\[Portable USB Drive]
- ├── 📁 Android    # Native Android (Termux) installers \\\& launchers
- ├── 📁 Linux      # Native Ubuntu/Debian offline installers \\\& launchers
- ├── 📁 Mac        # Native macOS offline installers \\\& launchers
- ├── 📁 Windows    # Native Windows offline automatic UI menus
- └── 📁 Shared     # Unified Data System
-      ├── 📁 bin         (Holds isolated executables: ollama-windows.exe, ollama-darwin...)
-      ├── 📁 chat\\\_data   (Houses cross-platform persistent conversation history)
-      ├── 📁 models      (HuggingFace GGUF Weights \\\& local database mapping)
-      └── 📁 python      (Isolated portable python environment)
----
-
-Curated AI Model Library
-This USB ships with a curated installer for the highest-quality, locally operable uncensored models available on the open-source market today:
-
-Gemma 2 2B Abliterated (~1.6 GB): Recommended for all. Extremely fast, incredibly smart for its size, with safety alignment vectors mathematically purged.
-Gemma 4 E4B Ultra Uncensored Heretic (~5.34 GB): A "heretic" fine-tune that aggressively forces compliance to all user queries regardless of content or legality.
-Qwen 3.5 9B Uncensored Aggressive (~5.2 GB): A much larger, incredibly competent reasoning model with a strict adherence to raw, unbiased answers.
-Custom Models: The installer supports downloading any .gguf weight directly from HuggingFace natively into the USB's engine.
----
-
-Quick Start Guide
-Step 1: Initialize the Engine
-Depending on the computer you are currently plugged into, navigate into the respective Operating System folder and double-click/run the install script.
-
-Windows: Double-click Windows/install.bat
-macOS: Open Terminal, drag in Mac/install.command, and press Enter.
-Linux: Run bash Linux/install.sh
-Android: Open Termux, run bash Android/install.sh (see Android section below)
-\*\*Note:\*\* Initializing simply downloads the tiny 50MB execution engine specific to that computer to the Shared/bin folder.
-
-Step 2: Download AI Models
-It is highly recommended to run the model download phase via a Windows PC (Windows/install.bat), which provides an interactive, terminal-based catalog to easily select and download highly curated, uncensored GGUF Models. (If you do not have a Windows PC, simply download your .gguf weights from HuggingFace and place them into the Shared/models folder manually).
-
-Step 3: Launch
-Open the respective OS folder and run the start script:
-
-Windows: Windows/start-fast-chat.bat
-macOS: Mac/start.command
-Linux: bash Linux/start.sh
-Android: bash Android/start.sh (in Termux)
-The engine will spin up securely in the background, and your default web browser will automatically open the locally-served Chat UI.
+Cosmos AI eliminates complicated installations and allows you to run powerful AI models directly on your own hardware without requiring an internet connection. The system is portable, cross-platform, and designed to work seamlessly across Windows, macOS, Linux, and Android.
 
 ---
 
-Local Disk Installation
-While this project is optimized for USB portability, it works beautifully as a lightweight local AI setup on your primary computer.
+## 🚀 Features
 
-How to Install Locally:
+### Zero-Dependency Setup
 
-Download/Clone this repository to a folder on your C:\\\\ or D:\\\\ drive.
-Navigate to the Windows (or Mac/Linux) folder.
-Run install.bat and choose your desired models.
-The system will download everything into that local folder.
-Run start-fast-chat.bat to begin.
-Benefit: Running from an internal SSD is significantly faster than a USB drive, resulting in near-instant AI model loading!
+* Portable Python environment included
+* Isolated AI engine binaries
+* No registry modifications
+* No package managers required
+* No administrator privileges needed
+
+### Cross-Platform Portability
+
+Download your AI models once and use them across:
+
+* Windows
+* macOS
+* Linux
+* Android (Termux)
+
+The shared storage architecture prevents duplicate model downloads, saving valuable disk space.
+
+### Local & Private
+
+* Completely offline operation
+* No cloud services
+* No internet required after setup
+* All conversations remain on your device
+
+### Network Access
+
+The built-in web server allows access from:
+
+* Desktop computers
+* Laptops
+* Smartphones
+* Tablets
+
+Simply connect devices to the same Wi-Fi network.
+
+### Hardware Acceleration
+
+Automatically utilizes available hardware:
+
+| Hardware         | Support |
+| ---------------- | ------- |
+| AVX CPUs         | ✅       |
+| NVIDIA CUDA GPUs | ✅       |
+| Apple Metal GPUs | ✅       |
+| Multi-core CPUs  | ✅       |
 
 ---
 
-Android Native (Termux)
-Run the AI engine directly on your Android phone or tablet — no PC required!
+# 📋 System Requirements
 
-Requirements
-Termux installed from F-Droid (NOT the Play Store — it's outdated)
-6 GB+ RAM (8 GB+ recommended). Only the 2B model runs well on 6 GB devices.
-WiFi or mobile data for initial setup (downloading engine + models)
-ARM64 processor (virtually all modern Android phones/tablets)
-Setup
-Copy the USB-Uncensored-LLM folder to your Android device (via USB OTG, file transfer, or git clone)
-Open Termux and navigate to the project folder
-Run: bash Android/install.sh
-Select your model (Gemma 2 2B recommended for most Android devices)
-Wait for downloads to complete — keep Termux in the foreground!
-Launch
+## Storage
+
+| Requirement | Minimum | Recommended |
+| ----------- | ------- | ----------- |
+| Free Space  | 8 GB    | 16 GB+      |
+
+### Supported Media
+
+* USB 3.0 Flash Drive
+* Portable SSD
+* Internal SSD
+* External Hard Drive
+
+---
+
+## Memory Requirements
+
+| Model Size   | Recommended RAM |
+| ------------ | --------------- |
+| 2B–4B Models | 8 GB            |
+| 7B–9B Models | 16 GB           |
+| 12B+ Models  | 24 GB+          |
+
+---
+
+# 📂 Folder Structure
+
+```text
+Cosmos-AI/
+│
+├── Android/
+│   └── Android installers and launchers
+│
+├── Linux/
+│   └── Linux installers and launchers
+│
+├── Mac/
+│   └── macOS installers and launchers
+│
+├── Windows/
+│   └── Windows installers and launchers
+│
+└── Shared/
+    │
+    ├── bin/
+    │   └── Engine binaries
+    │
+    ├── chat_data/
+    │   └── Conversation history
+    │
+    ├── models/
+    │   └── AI model files
+    │
+    └── python/
+        └── Portable Python environment
+```
+
+---
+
+# 🤖 Included Model Recommendations
+
+Cosmos AI supports any GGUF-compatible model.
+
+## Lightweight Models
+
+### Gemma 2 2B
+
+* Extremely fast
+* Low RAM usage
+* Ideal for older systems
+* Recommended for most users
+
+Approximate Size: **1.6 GB**
+
+---
+
+## Mid-Range Models
+
+### Gemma 4 E4B
+
+* Better reasoning
+* More detailed responses
+* Excellent balance of speed and quality
+
+Approximate Size: **5.3 GB**
+
+---
+
+## Advanced Models
+
+### Qwen 3 9B
+
+* Strong reasoning capabilities
+* Higher accuracy
+* Best for advanced workloads
+
+Approximate Size: **5.2 GB**
+
+---
+
+## Custom Models
+
+You may place any supported `.gguf` model directly inside:
+
+```text
+Shared/models/
+```
+
+---
+
+# ⚡ Quick Start
+
+## Step 1: Install Engine
+
+Choose the installer for your operating system.
+
+### Windows
+
+```bat
+Windows/install.bat
+```
+
+### macOS
+
+```bash
+Mac/install.command
+```
+
+### Linux
+
+```bash
+bash Linux/install.sh
+```
+
+### Android
+
+```bash
+bash Android/install.sh
+```
+
+The installer downloads the required engine binaries into:
+
+```text
+Shared/bin/
+```
+
+---
+
+## Step 2: Download Models
+
+Run the installer and select a model from the available catalog.
+
+Alternatively:
+
+1. Download a GGUF model.
+2. Place it inside:
+
+```text
+Shared/models/
+```
+
+---
+
+## Step 3: Launch Cosmos AI
+
+### Windows
+
+```bat
+Windows/start-fast-chat.bat
+```
+
+### macOS
+
+```bash
+Mac/start.command
+```
+
+### Linux
+
+```bash
+bash Linux/start.sh
+```
+
+### Android
+
+```bash
 bash Android/start.sh
-The AI engine starts and Chrome opens automatically with the chat UI.
+```
 
-Android Performance Tips
-Run termux-wake-lock before starting — prevents Android from killing the process
-Keep Termux in the foreground for best performance
-Close other apps to free RAM for the AI model
-Use the 2B model on devices with less than 12 GB RAM
-Plug in your charger — LLM inference drains battery fast
-Expect ~3-10 tokens/sec on the 2B model (vs 30-50+ on a PC with GPU)
+Your browser will automatically open the local chat interface.
+
 ---
 
-LAN Mobile Access
-If you want to use the Heavyweight AI from your phone while lounging on the couch:
+# 💻 Local Installation
 
-Ensure your PC running the start script and your phone are on the exact same WiFi network.
-The terminal window will automatically detect your host machine and display a Network Access IP Address (e.g., http://192.168.1.15:3333).
-Simply type that URL into your mobile browser (Safari/Chrome). The custom Python server perfectly routes mobile queries directly to the USB! (Note: If pages do not load, ensure Windows Firewall allows incoming connections on port 3333).
+Cosmos AI can also run directly from your computer instead of a USB device.
+
+## Installation
+
+1. Download or clone the repository.
+2. Extract it to a local drive.
+3. Run the installer.
+4. Download your preferred model.
+5. Launch the chat interface.
+
+### Benefits
+
+* Faster model loading
+* Better read/write performance
+* Improved generation speed
+* No external storage required
+
 ---
 
-Troubleshooting
-The script instantly closes on Windows: You likely have the legacy Windows App Execution Aliases turned on, which tricks the OS. Run the script via a command prompt, or right-click the .bat file and "Run as Administrator".
-"Ollama Engine Not Found": You attempted to run the start script before the install script downloaded the base software for your specific OS. Run your OS's installer!
-Slow Generation Speeds: Your model is too large for your host PC's RAM. Re-run install.bat and select the Gemma 2 2B Abliterated model, which runs rapidly even on older machines.
+# 📱 Android Support (Termux)
+
+Run Cosmos AI directly on Android devices.
+
+## Requirements
+
+* Termux (F-Droid version recommended)
+* ARM64 processor
+* 6 GB RAM minimum
+* 8 GB+ RAM recommended
+
+---
+
+## Setup
+
+```bash
+bash Android/install.sh
+```
+
+Select a model and wait for installation to complete.
+
+---
+
+## Launch
+
+```bash
+bash Android/start.sh
+```
+
+The browser will automatically open the local interface.
+
+---
+
+## Android Performance Tips
+
+* Run:
+
+```bash
+termux-wake-lock
+```
+
+* Keep Termux open while running
+* Close unused applications
+* Use smaller models on low-memory devices
+* Connect to a charger during extended sessions
+
+Expected performance:
+
+| Device   | Speed             |
+| -------- | ----------------- |
+| 2B Model | 3–10 Tokens/sec   |
+| PC + GPU | 30–50+ Tokens/sec |
+
+---
+
+# 🌐 Mobile Access Over Wi-Fi
+
+Access Cosmos AI from your phone while it runs on your computer.
+
+## Requirements
+
+* Same Wi-Fi network
+* Running Cosmos AI instance
+
+The terminal will display an address such as:
+
+```text
+http://192.168.1.15:3333
+```
+
+Open the address in any mobile browser.
+
+### If Access Fails
+
+Check:
+
+* Windows Firewall settings
+* Router isolation settings
+* Correct IP address
+
+---
+
+# 🛠 Troubleshooting
+
+## Installer Closes Immediately
+
+Run the installer from Command Prompt:
+
+```cmd
+install.bat
+```
+
+Or:
+
+```cmd
+Run as Administrator
+```
+
+---
+
+## Engine Not Found
+
+Cause:
+
+The launcher was executed before installation.
+
+Solution:
+
+Run the installer first.
+
+```bat
+install.bat
+```
+
+---
+
+## Slow Responses
+
+Cause:
+
+The selected model is too large for available RAM.
+
+Solution:
+
+Use a smaller model such as:
+
+* Gemma 2 2B
+
+---
+
+## Browser Does Not Open
+
+Open the displayed local URL manually:
+
+```text
+http://localhost:3333
+```
+
+---
+
+# 🔒 Privacy
+
+Cosmos AI is designed with privacy first.
+
+* No cloud processing
+* No telemetry
+* No external APIs
+* No account required
+* All conversations remain local
